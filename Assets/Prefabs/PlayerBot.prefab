@@ -110,6 +110,7 @@ MonoBehaviour:
   screenSize: {x: 0, y: 0}
   stepDistance: 1
   direction: 1
+  stepCooldown: 0.35
 --- !u!50 &6741944712830544168
 Rigidbody2D:
   serializedVersion: 5
