@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2495798327057595544}
   - component: {fileID: 25511315084434564}
+  - component: {fileID: 8458504012998200376}
   - component: {fileID: 6741944712830544168}
   - component: {fileID: 2452953435167351966}
-  - component: {fileID: 8458504012998200376}
   m_Layer: 0
   m_Name: PlayerBot
   m_TagString: Untagged
@@ -94,6 +94,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8458504012998200376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958532492879256057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd93f401083ac7846adbc45fa1d4193b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  rb: {fileID: 0}
+  screenSize: {x: 0, y: 0}
+  stepDistance: 1
+  direction: 1
 --- !u!50 &6741944712830544168
 Rigidbody2D:
   serializedVersion: 5
@@ -167,19 +183,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
---- !u!114 &8458504012998200376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958532492879256057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd93f401083ac7846adbc45fa1d4193b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 5
-  inputX: 0
-  rb: {fileID: 0}
-  screenSize: {x: 0, y: 0}
