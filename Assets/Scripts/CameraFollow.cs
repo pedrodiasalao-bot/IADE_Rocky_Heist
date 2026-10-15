@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Vector3 offset = new Vector3(0f, 0f, -10f);
-
+    public float forwardOffset = 3f;
     public float smoothTime = 0.5f;
 
     private Vector3 velocity = Vector3.zero;
+    private float direction = 1f; // Same as PlayerBot direction
 
     [SerializeField] private Transform target;
     
@@ -19,7 +19,17 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetPosition = target.position + offset;  
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            direction = -direction;
+        }
+        
+        Vector3 targetPosition = new Vector3(
+            target.position.x + (direction * forwardOffset), // The camera offset is positive when direction is 1 (so forward) and negative when direction is -1 (so backwards)
+            transform.position.y, 
+            -10f
+        );
+        
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }
