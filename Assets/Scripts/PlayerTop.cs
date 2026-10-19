@@ -38,7 +38,7 @@ public class PlayerTop : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow) && _nextIsRight)
         {
             TakeStep();
-            _nextIsRight = false; // Prepares RIGHT ARROW as the next key to be pressed.
+            _nextIsRight = false; // Prepares LEFT ARROW as the next key to be pressed.
         }
         
     

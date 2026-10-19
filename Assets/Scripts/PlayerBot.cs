@@ -11,13 +11,16 @@ public class PlayerBot : MonoBehaviour
     public float stepCooldown = 0.5f; // Cooldown in-between steps
     
     private bool _nextIsD = false; // So the player can't continuously press one key and has to alternate.
-    private float _nextStepTime = 0f; 
+    private float _nextStepTime = 0f;
+
+    private Animator _animator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
+        _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -33,11 +36,13 @@ public class PlayerBot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && !_nextIsD)
         {
             TakeStep();
+            _animator.SetTrigger("LeftStep");
             _nextIsD = true; // Prepares D as the next key to be pressed.
         }
         else if (Input.GetKeyDown(KeyCode.D) && _nextIsD)
         {
             TakeStep();
+            _animator.SetTrigger("RightStep");
             _nextIsD = false; // Prepares D as the next key to be pressed.
         }
         
