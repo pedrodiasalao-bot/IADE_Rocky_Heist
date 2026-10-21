@@ -29,6 +29,7 @@ public class PlayerBot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             direction = -direction; // Switches direction upon pressing the key S
+            transform.Rotate(0f, 180f, 0f); // Flips character sprite by 180 in the Y-Axis
         }
 
         if (Time.time < _nextStepTime) return; // If enough time hasn't passed yet, doesn't do anything
