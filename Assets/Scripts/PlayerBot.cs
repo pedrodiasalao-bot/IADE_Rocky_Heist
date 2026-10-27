@@ -46,6 +46,11 @@ public class PlayerBot : MonoBehaviour
             _animator.SetTrigger("RightStep");
             _nextIsD = false; // Prepares D as the next key to be pressed.
         }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            _animator.SetTrigger("Jump");
+            
+        }
         
     
     }
