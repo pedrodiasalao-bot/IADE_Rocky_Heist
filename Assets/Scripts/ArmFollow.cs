@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ParentFollow : MonoBehaviour
+public class ArmFollow : MonoBehaviour
 {
     public Rigidbody2D ArmPlacement;
 
