@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class LightFollow : MonoBehaviour
+public class FollowHand : MonoBehaviour
 {
     public float bodyX;
     public float bodyY;
+
+    [SerializeField] private int offSetX = 0;
+    [SerializeField] private int offSetY = 0;
 
     void Start()
     {
@@ -16,7 +19,7 @@ public class LightFollow : MonoBehaviour
         bodyX = transform.parent.transform.position.x;
         bodyY = transform.parent.transform.position.y;
 
-        //move the arm to it's place and offset it to the correct place times direction to turn to the right direction
-        transform.position = new Vector2(bodyX, bodyY);
+        //place it on the hand offset
+        transform.position = new Vector2(bodyX + offSetX, bodyY + offSetY);
     }
 }
