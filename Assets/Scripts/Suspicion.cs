@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Suspicion : MonoBehaviour
 {
-    public int suspicionMeter = 0;
+    public double suspicionMeter = 0;
 
     public void OnTriggerEnter2D(Collider2D other) //checks the collision is happening
     {
@@ -11,6 +11,24 @@ public class Suspicion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Found you!");
+
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            
+            if (suspicionMeter >= 20)
+            {
+                Debug.Log("Game Over");
+            }
+            else
+            {
+                Debug.Log(suspicionMeter);
+                suspicionMeter = suspicionMeter + 0.1;
+            }
         }
     }
 
@@ -22,23 +40,5 @@ public class Suspicion : MonoBehaviour
             Debug.Log("Lost you!");
         }
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void CheckSupicion() //pull the lever and this happens
-    {
-        
-    }
-
-    public void Chase() //pull the lever and this happens
-    {
-    }
 }
