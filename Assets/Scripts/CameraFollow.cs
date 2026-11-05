@@ -18,6 +18,8 @@ public class CameraFollow : MonoBehaviour
             _playerBot = target.GetComponent<PlayerBot>(); // Automatically sets the player as the target so I don't have to manually do that
         }
     }
+    
+    //test
 
     // Update is called once per frame
     void Update()
