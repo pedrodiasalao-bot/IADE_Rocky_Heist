@@ -6,7 +6,8 @@ public class PlayerBot : MonoBehaviour
 
     public Rigidbody2D rb;
     public Vector2 screenSize;
-
+    
+    
     public float stepDistance = 0.5f; // How far the player steps everytime they press a key
     public float direction = 1f; // What direction they're facing (switch with S), 1 = FORWARDS || -1 = BACKWARDS
     public float stepCooldown = 0.5f; // Cooldown in-between steps
