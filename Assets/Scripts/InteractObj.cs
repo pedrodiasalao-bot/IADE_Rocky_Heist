@@ -93,20 +93,20 @@ public class InteractObj : MonoBehaviour
     public void Hide(Rigidbody2D Body) //hides the body behind it
     {
         
-        if (!hiding)
-        {
-            Debug.Log("HIDE!!!");
-            hiding = true;
-            PlayerSprite.sortingLayerName = "Hide";
-            ArmSprite.sortingLayerName = "Hide";
-        }
-        else
-        {
-            hiding = false;
-            Body.position = new Vector2(0, bodyY);
-            PlayerSprite.sortingLayerName = "Player";
-            ArmSprite.sortingLayerName = "Player";
-        }
+        //if (!hiding)
+        //{
+        //    Debug.Log("HIDE!!!");
+        //    hiding = true;
+        //    PlayerSprite.sortingLayerName = "Hide";
+        //    ArmSprite.sortingLayerName = "Hide";
+        //}
+        //else
+        //{
+        //    hiding = false;
+        //    Body.position = new Vector2(0, bodyY);
+        //    PlayerSprite.sortingLayerName = "Player";
+        //    ArmSprite.sortingLayerName = "Player";
+        //}
         
     }
 }
