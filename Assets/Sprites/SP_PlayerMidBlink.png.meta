@@ -3,11 +3,11 @@ guid: d65e08573c1bd7b4d91b4bf40f0ce6e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7944216090812489616
-    second: SP_PlayerMidBlink 1_0
+      213: -668520239844779498
+    second: SP_PlayerMidBlink_0
   - first:
-      213: -1178977548080003790
-    second: SP_PlayerMidBlink 1_1
+      213: 1256782867767470806
+    second: SP_PlayerMidBlink_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,10 +129,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 94bbd42964056404e8f3883f4fc165a8
-      internalID: -101235343
+      spriteID: 61a94e24260f8b6f0800000000000000
+      internalID: -668520239844779498
       vertices: []
       indices: 
       edges: []
@@ -151,10 +151,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5fccbf36702f25949b69c9d473e38cf1
-      internalID: -1899699540
+      spriteID: 6daa3190c5df07110800000000000000
+      internalID: 1256782867767470806
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 516ef62855e406747aa07bcfc6a158fe
+    spriteID: e4fe617700a9cc147814696a0f95e7d6
     internalID: 0
     vertices: []
     indices: 
@@ -175,8 +175,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SP_PlayerMidBlink_0: -101235343
-      SP_PlayerMidBlink_1: -1899699540
+      SP_PlayerMidBlink_0: -668520239844779498
+      SP_PlayerMidBlink_1: 1256782867767470806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
