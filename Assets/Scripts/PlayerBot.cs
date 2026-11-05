@@ -19,10 +19,13 @@ public class PlayerBot : MonoBehaviour
     public float jumpCharge = 0.78f;
     // NOTE: I timed this to each frame of the ANIM_Jump animation
     public bool isJumping = false;
+    public bool isLeaning = false;
     
     private bool _nextIsD = false; // So the player can't continuously press one key and has to alternate.
     private float _nextStepTime = 0f;
     private float _nextJumpTime = 0f;
+    private int _stepCounter = 0; // Counts the steps
+    private int _targetSteps;
 
     private Animator _animator;
 
@@ -36,6 +39,8 @@ public class PlayerBot : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
         _animator = GetComponentInChildren<Animator>();
+
+        _targetSteps = Random.Range(5, 11); // 
     }
 
     // Update is called once per frame
@@ -43,9 +48,27 @@ public class PlayerBot : MonoBehaviour
     {
         if (interact.hiding) return; // if hiding can't move
         if (isJumping) return; // Does not allow the character to move if the player is jumping.
+        if (isLeaning)
+        {
+            if (direction < 0 && Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                StopLeaning();
+                _animator.SetTrigger("Counterbalance");
+            }
+            else if (direction > 0 && Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                StopLeaning();
+                _animator.SetTrigger("Counterbalance");
+            }
+
+            return; // Makes it so character can't move around when in this animation
+        }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
+            if (isLeaning) return;
+            if (isJumping) return;
+            
             direction = -direction; // Switches direction upon pressing the key S
             transform.Rotate(0f, 180f, 0f); // Flips character sprite by 180 in the Y-Axis
         }
@@ -79,6 +102,32 @@ public class PlayerBot : MonoBehaviour
     {
         rb.position += new Vector2(direction * stepDistance, 0f); // Moves the player in the DIRECTION by STEPDISTANCE amount
         _nextStepTime = Time.time + stepCooldown; // Charges up the next step timer
+        _stepCounter++; // Adds one step to the counter
+
+        if (_stepCounter >= _targetSteps) // if the step counter reached the random number required
+        {
+            isLeaning = true;
+            _animator.SetTrigger("Lean");
+        }
+    }
+
+    void StopLeaning()
+    {
+        isLeaning = false; // Returns to normal
+        _stepCounter = 0; // Resets step counter so it restarts
+        _targetSteps = GetNewTargetSteps(); // Randomizes the steps required again
+        if (_animator != null) _animator.Play("ANIM_Idle");
+    }
+
+    int GetNewTargetSteps()
+    {
+        int newTarget; // Gets a new random number
+        do
+        {
+            newTarget = Random.Range(5, 11); // Same thing as in the start function, randomizes the number
+        } while (newTarget == _targetSteps);
+        
+        return newTarget;
     }
 
     private IEnumerator JumpRoutine()
