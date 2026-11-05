@@ -7,6 +7,7 @@ TagManager:
   - Objects
   - Hand
   - HidingSpots
+  - collider
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Hide
+    uniqueID: 1086443407
+    locked: 0
+  - name: Background
+    uniqueID: 2154149651
+    locked: 0
+  - name: Objects
+    uniqueID: 1112398259
     locked: 0
   - name: Player
     uniqueID: 3780122105

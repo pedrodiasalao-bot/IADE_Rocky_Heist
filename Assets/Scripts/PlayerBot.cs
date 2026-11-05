@@ -24,7 +24,11 @@ public class PlayerBot : MonoBehaviour
     private float _nextJumpTime = 0f;
 
     private Animator _animator;
-    
+
+    //Check if player is hiding
+    public InteractObj interact;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,8 +40,9 @@ public class PlayerBot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (interact.hiding) return; // if hiding can't move
         if (isJumping) return; // Does not allow the character to move if the player is jumping.
-        
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             direction = -direction; // Switches direction upon pressing the key S
@@ -45,7 +50,7 @@ public class PlayerBot : MonoBehaviour
         }
 
         if (Time.time < _nextStepTime) return; // If enough time hasn't passed yet, doesn't do anything
-        
+
         if (Input.GetKeyDown(KeyCode.A) && !_nextIsD)
         {
             TakeStep();
@@ -64,9 +69,10 @@ public class PlayerBot : MonoBehaviour
             return;
 
         }
-        
-    
+
+
     }
+
 
     void TakeStep()
     {
