@@ -60,6 +60,9 @@ TagManager:
   - name: Enemies
     uniqueID: 3490259491
     locked: 0
+  - name: Colliders
+    uniqueID: 243501931
+    locked: 0
   - name: ForeGround
     uniqueID: 1163878869
     locked: 0

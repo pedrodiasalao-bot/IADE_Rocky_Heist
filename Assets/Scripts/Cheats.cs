@@ -13,27 +13,34 @@ public class Cheats : MonoBehaviour
         colliders = GameObject.FindGameObjectsWithTag("collider"); //find all colliders
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //not working at the moment
-        if (Input.GetKeyDown(KeyCode.P) && collidersOn)
+        //Turn On The visible Colliders
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ColliderSwitch();
+        }
+    }
+
+    void ColliderSwitch()
+    {
+        if(collidersOn)
         {
             //it is on so turn it off
             for (int i = 0; i < colliders.Length; i++)
             {
-                spriteRenderer = colliders[i].GetComponent<SpriteRenderer>();
-                spriteRenderer.sortingLayerName = "Hide";
-                //colliders[i].layer = 1;
+                colliders[i].GetComponent<SpriteRenderer>().sortingLayerName = "Hide"; //get the layer and change it
+                collidersOn = false;
             }
-            
+
         }
-        else if (Input.GetKeyDown(KeyCode.P) && !collidersOn)
+        else if (!collidersOn)
         {
+            //it is off so turn it on
             for (int i = 0; i < colliders.Length; i++)
             {
-                spriteRenderer = colliders[i].GetComponent<SpriteRenderer>();
-                spriteRenderer.sortingLayerName = "Foreground";
+                colliders[i].GetComponent<SpriteRenderer>().sortingLayerName = "Colliders"; //get the layer and change it
+                collidersOn = true;
             }
         }
     }
