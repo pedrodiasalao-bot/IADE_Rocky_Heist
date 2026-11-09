@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39009672}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.079213, w: 0.99685776}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6576032, w: 0.75336456}
   m_LocalPosition: {x: 1.7553759, y: -0.00000069022207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166431412}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.056029797, w: 0.9984291}
+  m_LocalRotation: {x: -0, y: -0, z: -0.41651994, w: 0.90912664}
   m_LocalPosition: {x: 1.41, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -754,7 +754,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.3599896, y: -0.8470001}
+  m_Offset: {x: 2.3599896, y: 2.9832196}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -764,7 +764,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.7200193, y: 2.6860008}
+  m_Size: {x: 4.7200193, y: 10.346442}
   m_EdgeRadius: 0
 --- !u!1 &408206685
 GameObject:
@@ -881,7 +881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420031277}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.011429523, w: 0.9999347}
+  m_LocalRotation: {x: 0, y: 0, z: -0.25065047, w: 0.96807766}
   m_LocalPosition: {x: -1.7860103, y: 0.5479535, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1719,7 +1719,7 @@ Transform:
   m_GameObject: {fileID: 1269721312}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.03465975, w: 0.9993992}
-  m_LocalPosition: {x: 1.362, y: 0.784, z: 0}
+  m_LocalPosition: {x: 0.65544057, y: 0.8012337, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1784,6 +1784,7 @@ GameObject:
   - component: {fileID: 1418024250}
   - component: {fileID: 1418024252}
   - component: {fileID: 1418024253}
+  - component: {fileID: 1418024254}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -1878,6 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd718006c0f814a8bc88abd4fccb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  PlayerBot: {fileID: 2077093502}
   sus: 0
   chase: 0
   speedReg: 3
@@ -1930,6 +1932,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.94, y: 4.58}
   m_EdgeRadius: 0
+--- !u!50 &1418024254
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418024249}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1441490718
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ public class Cheats : MonoBehaviour
 {
     private bool collidersOn = false;
     private bool darknessOn = true;
+    private bool invisibleOn = true;
 
     private GameObject[] colliders;
     private GameObject darkness;
@@ -23,9 +24,13 @@ public class Cheats : MonoBehaviour
         {
             ColliderSwitch();
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        else if (Input.GetKeyDown(KeyCode.L))
         {
             DarknessSwitch();
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            Invisible();
         }
     }
 
@@ -66,6 +71,21 @@ public class Cheats : MonoBehaviour
             //it is off so turn it on
             darkness.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground"; //get the layer and change it
             darknessOn = true;
+        }
+    }
+
+    void Invisible()
+    {
+        if (invisibleOn)
+        {
+            //it is on so turn it off 
+
+
+        }
+        else if (!invisibleOn)
+        {
+            //it is off so turn it on
+            
         }
     }
 }
