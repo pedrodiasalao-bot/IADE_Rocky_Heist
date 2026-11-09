@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - HidingSpots
   - collider
+  - Darkness
   layers:
   - Default
   - TransparentFX
@@ -63,8 +64,11 @@ TagManager:
   - name: Colliders
     uniqueID: 243501931
     locked: 0
-  - name: ForeGround
+  - name: Foreground
     uniqueID: 1163878869
+    locked: 0
+  - name: UI
+    uniqueID: 3041418009
     locked: 0
   m_RenderingLayers:
   - Default

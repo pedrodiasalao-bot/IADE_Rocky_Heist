@@ -3,14 +3,17 @@ using UnityEngine;
 public class Cheats : MonoBehaviour
 {
     private bool collidersOn = false;
+    private bool darknessOn = true;
 
     private GameObject[] colliders;
+    private GameObject darkness;
 
-    SpriteRenderer spriteRenderer;
+    //SpriteRenderer spriteRenderer;
 
     void Start()
     {
         colliders = GameObject.FindGameObjectsWithTag("collider"); //find all colliders
+        darkness = GameObject.FindGameObjectWithTag("Darkness"); //find the darkness
     }
 
     void Update()
@@ -19,6 +22,10 @@ public class Cheats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             ColliderSwitch();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            DarknessSwitch();
         }
     }
 
@@ -42,6 +49,23 @@ public class Cheats : MonoBehaviour
                 colliders[i].GetComponent<SpriteRenderer>().sortingLayerName = "Colliders"; //get the layer and change it
                 collidersOn = true;
             }
+        }
+    }
+
+    void DarknessSwitch()
+    {
+        if (darknessOn)
+        {
+            //it is on so turn it off
+            darkness.GetComponent<SpriteRenderer>().sortingLayerName = "Hide"; //get the layer and change it
+            darknessOn = false;
+
+        }
+        else if (!darknessOn)
+        {
+            //it is off so turn it on
+            darkness.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground"; //get the layer and change it
+            darknessOn = true;
         }
     }
 }
