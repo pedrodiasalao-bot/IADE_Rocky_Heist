@@ -46,6 +46,7 @@ public class PlayerBot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(interact);
         if (interact.hiding) return; // if hiding can't move
         if (isJumping) return; // Does not allow the character to move if the player is jumping.
         if (isLeaning)

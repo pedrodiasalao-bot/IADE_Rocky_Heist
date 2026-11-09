@@ -21,6 +21,8 @@ public class GuardAI : MonoBehaviour
 
     private Vector2 newPos;
 
+    //public InteractObj interact;
+
     void Start()
     {
         //Set the points
@@ -38,6 +40,7 @@ public class GuardAI : MonoBehaviour
         sus = transform.GetChild(0).GetComponent<Suspicion>().suspicionMeter;
         chase = transform.GetChild(0).GetComponent<Suspicion>().chase;
 
+        
         if (chase == false)
         {
             if (sus > 50) //if suspicion high the guard will speed up
