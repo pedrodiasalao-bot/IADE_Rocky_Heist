@@ -26,6 +26,7 @@ public class PlayerBot : MonoBehaviour
     private float _nextJumpTime = 0f;
     private int _stepCounter = 0; // Counts the steps
     private int _targetSteps;
+    private string qtePrompt = ""; // Bootleg makeshift QTE visuals (prototype)
 
     private Animator _animator;
 
@@ -164,9 +165,68 @@ public class PlayerBot : MonoBehaviour
         }
 
         rb.position = targetPos; // Sets the player model to where it landed
+        yield return StartCoroutine(QTERoutine());
 
         _nextJumpTime = Time.time + jumpCooldown;
         isJumping = false;
+    
+}
+
+private IEnumerator QTERoutine()
+{
+    KeyCode[] movementKeys = { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D }; // The different options for the QTE
+
+    for (int i = 0; i < 4; i++) // The 4 QTE key segment order
+    {
+        KeyCode requiredKey = movementKeys[Random.Range(0, movementKeys.Length)]; // Randomize the sequence of the arrow keys required
+        qtePrompt = "PRESS: " + requiredKey; // Text that appears
+
+        float timer = 2.0f; // Adjustable (seconds required to press each key)
+        bool correct = false; // Unless completed, then it will turn true
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (Input.GetKeyDown(requiredKey))
+            {
+                correct = true; // Self Explanatory
+                break;
+            }
+            else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
+                     Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            {
+                break; // If they pressed the wrong one, returns as nothing, making the bool correct stay as false
+            }
+
+            yield return null;
+        }
+
+        if (!correct) // If the timer runs out or the player pressed the wrong button
+        {
+            qtePrompt = "Fell Over"; // Text pop up
+            if (_animator != null) _animator.Play("ANIM_Fall");
+
+            yield return new WaitForSeconds(1.9f); // Timed for the fall animation to end
+            
+            if (_animator != null) _animator.Play("ANIM_Idle"); // Redundant but just in case stuff breaks
+            qtePrompt = ""; // Resets the text
+            yield break; // Stops the QTE entirely
+        }
+
+        yield return new WaitForSeconds(0.1f);
     }
+
+    qtePrompt = ""; // Resets the text
+}
+
+void OnGUI() // PROTOTYPE ONLY (just so the player can see the text on screen for now)
+{
+    if (!string.IsNullOrEmpty(qtePrompt))
+    {
+        GUI.skin.label.fontSize = 32;
+        GUI.Label(new Rect(Screen.width / 2f - 100, 100, 300, 60), qtePrompt);
+    }
+}
 }
 
