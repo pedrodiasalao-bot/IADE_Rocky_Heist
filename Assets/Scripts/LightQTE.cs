@@ -57,6 +57,9 @@ public class LightQTE : MonoBehaviour
         guardFix = GameObject.FindGameObjectWithTag("guard"); 
         objFix = GameObject.FindGameObjectWithTag("Objects");
 
+        
+
+
     }
 
     void Update()
@@ -118,16 +121,21 @@ public class LightQTE : MonoBehaviour
         if (hitCollider != null)
         {
             //bugfix.GetComponent<Collider2D>().enabled = false;
-            interactFix.GetComponent<Collider2D>().enabled = false;
-            hideFix.GetComponent<Collider2D>().enabled = false;
-            lightFix.GetComponent<Collider2D>().enabled = false;
-            guardFix.GetComponent<Collider2D>().enabled = false;
-            objFix.GetComponent<Collider2D>().enabled = false;
+            Debug.Log(interactFix.GetComponent<Collider2D>().enabled);
+            Debug.Log(hideFix.GetComponent<Collider2D>().enabled);
+            Debug.Log(lightFix.GetComponent<Collider2D>().enabled);
+            Debug.Log(guardFix.GetComponent<Collider2D>().enabled);
+            Debug.Log(objFix.GetComponent<Collider2D>().enabled);
 
             Debug.Log(hitCollider.GetComponent<Collider2D>().name);
 
             if (inQTE && hitCollider.GetComponent<Collider2D>().name == "QTE_HitBox(Clone)" && Input.GetMouseButtonDown(0))
             {
+                interactFix.GetComponent<Collider2D>().enabled = false;
+                hideFix.GetComponent<Collider2D>().enabled = false;
+                lightFix.GetComponent<Collider2D>().enabled = false;
+                guardFix.GetComponent<Collider2D>().enabled = false;
+                objFix.GetComponent<Collider2D>().enabled = false;
                 ClickQTE();
             }
         }
