@@ -9,11 +9,14 @@ TagManager:
   - HidingSpots
   - collider
   - Darkness
+  - QTE
+  - guardlight
+  - guard
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - QTE
   - Water
   - UI
   - 
@@ -66,6 +69,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1163878869
+    locked: 0
+  - name: QTE
+    uniqueID: 1368729543
     locked: 0
   - name: UI
     uniqueID: 3041418009

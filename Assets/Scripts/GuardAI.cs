@@ -89,14 +89,14 @@ public class GuardAI : MonoBehaviour
 
     void Chase(float speed)
     {
-        Debug.Log("chase!!!");
+        //Debug.Log("chase!!!");
         playerLoc = PlayerBot.position;
         oldP = transform.position;
         transform.position = Vector2.MoveTowards(transform.position, playerLoc, speed * Time.deltaTime); //moving toward plaery
         newP = transform.position;
 
-        Debug.Log("OLD---->" + oldP);
-        Debug.Log("New---->" + newP);
+        //Debug.Log("OLD---->" + oldP);
+        //Debug.Log("New---->" + newP);
 
         if (oldP.x < newP.x)
         {
