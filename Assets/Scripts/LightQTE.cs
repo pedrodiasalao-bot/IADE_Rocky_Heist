@@ -1,6 +1,4 @@
-using JetBrains.Annotations;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+
 using UnityEngine;
 
 public class LightQTE : MonoBehaviour
