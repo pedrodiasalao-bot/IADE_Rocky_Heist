@@ -7,6 +7,9 @@ public class NPC_Steering : MonoBehaviour
     public float speed = 3f;
     public float dist = 0.2f; //the distance to the point
 
+    private Rigidbody2D rb;
+    public float maxForce = 20f; // So the NPC doesn't go too fast
+    public float slowingRadius = 1.5f; // Arrive Behaviour (from first milestone)
 
     //patrolling
     private Vector2 A, B; // patrolling waypoint
@@ -44,6 +47,7 @@ public class NPC_Steering : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         //Set the points
         A = new Vector2(-path, transform.position.y);
         B = new Vector2(path, transform.position.y);
@@ -73,6 +77,26 @@ public class NPC_Steering : MonoBehaviour
 
     }
 
+    void Steering(Vector2 target)
+    {
+        float distance = Mathf.Abs(target.x - transform.position.x);
+
+        float desiredSpeed = speed;
+        if (distance < slowingRadius) // Arrive behavior, makes him slow down slightly when approaching target
+        {
+            desiredSpeed = speed * (distance / slowingRadius);
+        }
+        
+        float directionX = Mathf.Sign((target.x - transform.position.x));
+        float desiredVelocityX = directionX * desiredSpeed;
+        
+        float steeringForceX = desiredVelocityX - rb.linearVelocity.x;
+        
+        steeringForceX = Mathf.Clamp(steeringForceX, -maxForce, maxForce); // setting a limit to the force the NPC can steer at
+        
+        rb.AddForce(new Vector2(steeringForceX, 0f));
+    }
+
     void WanderTarget(Vector2 newPoint)
     {
         newPos = newPoint;
@@ -81,7 +105,8 @@ public class NPC_Steering : MonoBehaviour
     void Wander()
     {
         // Move towards the target position
-        transform.position = Vector2.MoveTowards(transform.position, newPos, speed * Time.deltaTime);
+       // REPLACED WITH THE FUNCTION ABOVE: transform.position = Vector2.MoveTowards(transform.position, newPos, speed * Time.deltaTime);
+       Steering(newPos);
 
         if (Vector2.Distance(transform.position, newPos) < dist && newPos == A)
         {
@@ -99,6 +124,6 @@ public class NPC_Steering : MonoBehaviour
     {
         //Debug.Log("chase!!!");
         playerLoc = PlayerBody.position;
-        transform.position = Vector2.MoveTowards(transform.position, playerLoc, speed * Time.deltaTime); //moving toward player
+        Steering(playerLoc);
     }
 }
