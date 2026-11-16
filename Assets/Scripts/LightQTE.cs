@@ -21,6 +21,11 @@ public class LightQTE : MonoBehaviour
     private bool inQTE = false;
 
 
+    //[SerializeField] private PlayerBot BodyScript; //gets the script PlayerBot
+    public float bodyX;
+    public float bodyY;
+
+    public float distAway = 5;
     public float minX = -2f;
     public float maxX = 2f;
     public float minY = -3f;
@@ -55,15 +60,19 @@ public class LightQTE : MonoBehaviour
         guardFix = GameObject.FindGameObjectWithTag("guard"); 
         objFix = GameObject.FindGameObjectWithTag("Objects");
 
-        
+        bodyY = transform.parent.parent.parent.parent.transform.position.y;
 
 
     }
 
     void Update()
     {
+        //get the x and y of the body and place the arm there
+        Debug.Log(transform.parent.parent.parent.parent.transform.position.x);
+        bodyX = transform.parent.parent.parent.parent.transform.position.x;
+
         //start the lights timer
-        if(time < 0)
+        if (time < 0)
         {
             //in QTE
         }
@@ -165,8 +174,8 @@ public class LightQTE : MonoBehaviour
     void SpawnItem()
     {
         //random posistion for the hit boxes
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
+        float randomX = Random.Range(bodyX-distAway, bodyX+distAway);
+        float randomY = Random.Range(bodyY-distAway, bodyY+distAway);
         Vector2 spawnPosition = new Vector2(randomX, randomY);
 
         Instantiate(itemPrefab, spawnPosition, Quaternion.identity); //spawn
