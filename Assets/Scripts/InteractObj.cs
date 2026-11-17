@@ -23,6 +23,8 @@ public class InteractObj : MonoBehaviour
     SpriteRenderer PlayerSprite;
     SpriteRenderer ArmSprite;
 
+    private GameObject PlayerHitBox;
+
     void Start()
     {
         //get the rigidbody of PlayerBot
@@ -35,6 +37,9 @@ public class InteractObj : MonoBehaviour
 
         //Get the og y to place the player back on it
         bodyY = transform.parent.parent.parent.parent.transform.position.y;
+
+        //get the player 
+        PlayerHitBox = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -73,6 +78,9 @@ public class InteractObj : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log(PlayerHitBox.GetComponent<Collider2D>().enabled);
+
         //when collision is happening and click the mouse this will happen
         if (triggerLever && Input.GetMouseButtonDown(0))
         {
@@ -97,6 +105,7 @@ public class InteractObj : MonoBehaviour
         {
             Debug.Log("HIDE!!!");
             hiding = true;
+            PlayerHitBox.GetComponent<Collider2D>().enabled = false;
             PlayerSprite.sortingLayerName = "Hide";
             ArmSprite.sortingLayerName = "Hide";
         }
@@ -104,6 +113,7 @@ public class InteractObj : MonoBehaviour
         {
             hiding = false;
             Body.position = new Vector2(0, bodyY);
+            PlayerHitBox.GetComponent<Collider2D>().enabled = true;
             PlayerSprite.sortingLayerName = "Player";
             ArmSprite.sortingLayerName = "Player";
         }

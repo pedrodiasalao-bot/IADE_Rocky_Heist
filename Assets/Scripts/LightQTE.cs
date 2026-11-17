@@ -128,13 +128,13 @@ public class LightQTE : MonoBehaviour
         if (hitCollider != null)
         {
             //bugfix.GetComponent<Collider2D>().enabled = false;
-            Debug.Log(interactFix.GetComponent<Collider2D>().enabled);
-            Debug.Log(hideFix.GetComponent<Collider2D>().enabled);
-            Debug.Log(lightFix.GetComponent<Collider2D>().enabled);
-            Debug.Log(guardFix.GetComponent<Collider2D>().enabled);
-            Debug.Log(objFix.GetComponent<Collider2D>().enabled);
+            //Debug.Log(interactFix.GetComponent<Collider2D>().enabled);
+            //Debug.Log(hideFix.GetComponent<Collider2D>().enabled);
+            //Debug.Log(lightFix.GetComponent<Collider2D>().enabled);
+            //Debug.Log(guardFix.GetComponent<Collider2D>().enabled);
+            //Debug.Log(objFix.GetComponent<Collider2D>().enabled);
 
-            Debug.Log(hitCollider.GetComponent<Collider2D>().name);
+            //Debug.Log(hitCollider.GetComponent<Collider2D>().name);
 
             if (inQTE && hitCollider.GetComponent<Collider2D>().name == "QTE_HitBox(Clone)" && Input.GetMouseButtonDown(0))
             {
