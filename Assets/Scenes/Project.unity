@@ -1667,10 +1667,6 @@ MonoBehaviour:
   bodyX: 0
   bodyY: 0
   distAway: 5
-  minX: -4
-  maxX: 4
-  minY: -4
-  maxY: 4
   itemPrefab: {fileID: 982056894}
 --- !u!1 &1252070621
 GameObject:
