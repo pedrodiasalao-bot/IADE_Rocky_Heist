@@ -175,6 +175,7 @@ public class PlayerBot : MonoBehaviour
 private IEnumerator QTERoutine()
 {
     KeyCode[] movementKeys = { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D }; // The different options for the QTE
+    if (_animator != null) _animator.Play("ANIM_Lean");
 
     for (int i = 0; i < 4; i++) // The 4 QTE key segment order
     {
@@ -187,7 +188,8 @@ private IEnumerator QTERoutine()
         while (timer > 0)
         {
             timer -= Time.deltaTime;
-
+            
+            
             if (Input.GetKeyDown(requiredKey))
             {
                 correct = true; // Self Explanatory
@@ -216,7 +218,7 @@ private IEnumerator QTERoutine()
 
         yield return new WaitForSeconds(0.1f);
     }
-
+    if (_animator != null) _animator.Play("ANIM_Idle");
     qtePrompt = ""; // Resets the text
 }
 
