@@ -11,8 +11,6 @@ public class LightQTE : MonoBehaviour
     private int lightRadious;
 
     private int[] timers = { 5, 10, 15, 20, 25}; //reg
-
-    //private int[] timers = { 1, 100, 102, 103, 104}; //testing
     private int currentStage;
 
 
@@ -21,21 +19,15 @@ public class LightQTE : MonoBehaviour
     private bool inQTE = false;
 
 
-    //[SerializeField] private PlayerBot BodyScript; //gets the script PlayerBot
     public float bodyX;
     public float bodyY;
 
     public float distAway = 5;
-    public float minX = -2f;
-    public float maxX = 2f;
-    public float minY = -3f;
-    public float maxY = 3f;
 
     private Vector2 mouseWorldPos;
     private Collider2D hitCollider;
 
     private int amount;
-    private GameObject[] hitBox;
 
     private float timerQTE;
     public GameObject itemPrefab;
@@ -67,9 +59,8 @@ public class LightQTE : MonoBehaviour
 
     void Update()
     {
-        //get the x and y of the body and place the arm there
-        Debug.Log(transform.parent.parent.parent.parent.transform.position.x);
-        bodyX = transform.parent.parent.parent.parent.transform.position.x;
+        //Debug.Log(transform.parent.parent.parent.parent.transform.position.x);
+        bodyX = transform.parent.parent.parent.parent.transform.position.x; //find the body
 
         //start the lights timer
         if (time < 0)

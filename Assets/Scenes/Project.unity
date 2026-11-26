@@ -1664,6 +1664,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightQTE
   otherObject: {fileID: 0}
+  bodyX: 0
+  bodyY: 0
+  distAway: 5
   minX: -4
   maxX: 4
   minY: -4
