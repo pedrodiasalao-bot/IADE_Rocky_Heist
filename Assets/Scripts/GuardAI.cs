@@ -20,6 +20,7 @@ public class GuardAI : MonoBehaviour
 
     private Vector2 A, B; //The points the guard walks to
     private Vector2 playerLoc; //Where the player is
+    private float x; //Where the player is
     private Vector2 oldP, newP;
 
     public float path = 5; //The distance the guard travels each way
@@ -90,7 +91,11 @@ public class GuardAI : MonoBehaviour
     void Chase(float speed)
     {
         //Debug.Log("chase!!!");
-        playerLoc = PlayerBot.position;
+        //playerLoc = PlayerBot.position;
+
+        x = PlayerBot.position.x;
+        playerLoc = new Vector2(x, transform.position.y);
+        
         oldP = transform.position;
         transform.position = Vector2.MoveTowards(transform.position, playerLoc, speed * Time.deltaTime); //moving toward plaery
         newP = transform.position;
@@ -98,13 +103,6 @@ public class GuardAI : MonoBehaviour
         //Debug.Log("OLD---->" + oldP);
         //Debug.Log("New---->" + newP);
 
-        if (oldP.x < newP.x)
-        {
-            //transform.Rotate(0f, 180f, 0f);
-        }
-        else
-        {
-            //transform.Rotate(0f, 180f, 0f);
-        }
+        
     }
 }
